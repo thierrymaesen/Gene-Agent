@@ -64,6 +64,12 @@ Le système est construit avec des garde-fous stricts :
 *Créé pour démontrer l'application de l'IA Agentique au domaine de la Bio-informatique.*
 ---
 
+## 📄 Licence
+
+Ce projet est sous licence **MIT**. Voir le fichier [LICENSE](LICENSE) pour plus de détails.
+
+---
+
 ## 👨‍💻 Auteur
 
 **Thierry Maesen**
