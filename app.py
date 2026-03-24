@@ -4,7 +4,7 @@ import os
 from bio_tools import translate_dna_to_protein, identify_species
 
 # --- GESTION ROBUSTE DE L'IMPORT DE SMOLAGENTS ---
-from smolagents import ToolCallingAgent, tool
+from smolagents import CodeAgent, tool
 
 try:
     # Pour les versions récentes de smolagents (sur Streamlit Cloud)
@@ -111,7 +111,7 @@ if prompt := st.chat_input("Ex: J'ai trouvé cet ADN : ATGGCCCTGTGGATGCGCCTCCTG.
     """
     
     # 2. On crée l'Agent normalement (SANS l'argument system_prompt qui cause l'erreur)
-    agent = ToolCallingAgent(
+    agent = CodeAgent(
         tools=[ai_dna_translator, ai_species_identifier], 
         model=model
     )

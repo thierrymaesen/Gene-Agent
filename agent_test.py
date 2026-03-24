@@ -4,7 +4,7 @@ import os
 from bio_tools import translate_dna_to_protein, identify_species
 
 # --- GESTION ROBUSTE DE L'IMPORT DE SMOLAGENTS ---
-from smolagents import ToolCallingAgent, tool
+from smolagents import CodeAgent, tool
 
 try:
     # Pour les versions récentes de smolagents (sur Streamlit Cloud)
@@ -41,7 +41,7 @@ model = HfApiModel(
 )
 
 # 3. Création de l'Agent
-agent = ToolCallingAgent(tools=[ai_dna_translator], model=model)
+agent = CodeAgent(tools=[ai_dna_translator], model=model)
 
 # --- TEST DE L'AGENT ---
 if __name__ == "__main__":
