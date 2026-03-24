@@ -1,5 +1,4 @@
 streamlit
 smolagents
-litellm>=1.0.0
 biopython
 pytest

@@ -1,5 +1,5 @@
 # agent_test.py
-from smolagents import ToolCallingAgent, tool, LiteLLMModel
+from smolagents import ToolCallingAgent, tool, HfApiModel
 import os
 from bio_tools import translate_dna_to_protein
 
@@ -20,9 +20,9 @@ def ai_dna_translator(dna_sequence: str) -> str:
 os.environ["HUGGINGFACE_API_KEY"] = "VOTRE_CLE_ICI" 
 
 print("🧠 Initialisation du cerveau de l'Agent...")
-model = LiteLLMModel(
-    model_id="huggingface/Qwen/Qwen2.5-Coder-32B-Instruct",
-    api_key=os.environ.get("HUGGINGFACE_API_KEY", "CLE_TEST")
+model = HfApiModel(
+    model_id="Qwen/Qwen2.5-Coder-32B-Instruct",
+    token=os.environ.get("HUGGINGFACE_API_KEY", "CLE_TEST")
 )
 
 # 3. Création de l'Agent
