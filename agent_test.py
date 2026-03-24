@@ -1,8 +1,6 @@
 # agent_test.py
-from smolagents import ToolCallingAgent, tool, LiteLLMModel
+from smolagents import ToolCallingAgent, tool, HfApiModel
 import os
-
-# On importe notre fonction biologique sécurisée créée à l'étape 1
 from bio_tools import translate_dna_to_protein
 
 # 1. Le "Décorateur" @tool
@@ -22,10 +20,9 @@ def ai_dna_translator(dna_sequence: str) -> str:
 os.environ["HUGGINGFACE_API_KEY"] = "VOTRE_CLE_ICI" 
 
 print("🧠 Initialisation du cerveau de l'Agent...")
-# Utilisation de LiteLLMModel qui est le standard actuel de smolagents pour appeler des API
-model = LiteLLMModel(
-    model_id="huggingface/Qwen/Qwen2.5-Coder-32B-Instruct",
-    api_key=os.environ["HUGGINGFACE_API_KEY"]
+model = HfApiModel(
+    model_id="Qwen/Qwen2.5-Coder-32B-Instruct",
+    token=os.environ.get("HUGGINGFACE_API_KEY")
 )
 
 # 3. Création de l'Agent
