@@ -1,6 +1,6 @@
 # app.py
 import streamlit as st
-from smolagents import ToolCallingAgent, tool, HfApiModel
+from smolagents import ToolCallingAgent, tool, LiteLLMModel
 import os
 from bio_tools import translate_dna_to_protein, identify_species
 
@@ -79,7 +79,12 @@ if prompt := st.chat_input("Ex: J'ai trouvé cet ADN : ATGGCCCTGTGGATGCGCCTCCTG.
         st.stop()
         
     os.environ["HUGGINGFACE_API_KEY"] = api_key
-    model = HfApiModel(model_id="huggingface/Qwen/Qwen2.5-Coder-32B-Instruct", api_key=api_key)
+    
+    # Utilisation du pont LiteLLM (Standard industriel)
+    model = LiteLLMModel(
+        model_id="huggingface/Qwen/Qwen2.5-Coder-32B-Instruct", 
+        api_key=api_key
+    )
     
         # 1. On définit nos règles strictes
     regles_strictes = """

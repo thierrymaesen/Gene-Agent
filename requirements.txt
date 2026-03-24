@@ -1,5 +1,5 @@
 streamlit
 smolagents
-huggingface_hub
+litellm>=1.0.0
 biopython
 pytest
