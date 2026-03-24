@@ -1,4 +1,5 @@
 streamlit
 smolagents
+huggingface_hub
 biopython
 pytest
