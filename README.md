@@ -62,3 +62,12 @@ Le système est construit avec des garde-fous stricts :
 
 ---
 *Créé pour démontrer l'application de l'IA Agentique au domaine de la Bio-informatique.*
+---
+
+## 👨‍💻 Auteur
+
+**Thierry Maesen**
+- **Projet** : [Gene-Agent GitHub Repository](https://github.com/thierrymaesen/Gene-Agent)
+- **Concept** : Démonstration de l'architecture *Agentic Workflow* et *AI for Science*.
+
+*Ce projet a été conçu pour illustrer la création d'Agents Autonomes sécurisés, résilients aux hallucinations, et déployés via un pipeline CI/CD professionnel.*

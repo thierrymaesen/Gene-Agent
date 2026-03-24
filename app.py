@@ -135,3 +135,17 @@ if prompt := st.chat_input("Ex: J'ai trouvé cet ADN : ATGGCCCTGTGGATGCGCCTCCTG.
         st.markdown(reponse_finale)
         
     st.session_state.messages.append({"role": "assistant", "content": reponse_finale})
+    
+# --- FOOTER / SIGNATURE ---
+st.markdown("---")
+st.markdown(
+    """
+    <div style='text-align: center; color: grey;'>
+        <small>
+            🧬 <b>Gene-Agent</b> | Conçu et développé par <b>Thierry Maesen</b><br>
+            <a href="https://github.com/thierrymaesen/Gene-Agent" target="_blank">Voir le code source sur GitHub</a>
+        </small>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
