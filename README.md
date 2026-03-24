@@ -1,9 +1,11 @@
 # 🧬 Gene-Agent : IA Génomique Autonome (Agentic Workflow)
 
-![Python](https://img.shields.io/badge/Python-3.10%2B-blue)
-![Streamlit](https://img.shields.io/badge/Streamlit-1.32-red)
-![AI Framework](https://img.shields.io/badge/smolagents-HuggingFace-yellow)
-![LLM](https://img.shields.io/badge/LLM-Qwen_32B_Coder-purple)
+![Python](https://img.shields.io/badge/Python-3.10-blue?logo=python&logoColor=white)
+![Streamlit](https://img.shields.io/badge/Streamlit-Cloud_Deployed-red?logo=streamlit&logoColor=white)
+![AI Framework](https://img.shields.io/badge/Framework-smolagents_(CodeAgent)-yellow)
+![LLM](https://img.shields.io/badge/LLM-Qwen_2.5_Coder_32B-purple)
+![License](https://img.shields.io/badge/License-MIT-green)
+![CI/CD](https://github.com/thierrymaesen/Gene-Agent/actions/workflows/ci.yml/badge.svg)
 
 **Gene-Agent** est un système d'Intelligence Artificielle autonome conçu pour la bio-informatique. Contrairement aux chatbots classiques ou aux systèmes RAG, ce projet utilise un **Agentic Workflow** (Flux de travail Agentique), permettant au modèle de langage (LLM) de raisonner de manière autonome, de sélectionner et d'exécuter des outils Python sur mesure pour analyser des séquences d'ADN.
 
