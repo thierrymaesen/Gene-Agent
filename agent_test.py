@@ -1,7 +1,22 @@
 # agent_test.py
-from smolagents import ToolCallingAgent, tool, HfApiModel
+import streamlit as st
 import os
-from bio_tools import translate_dna_to_protein
+from bio_tools import translate_dna_to_protein, identify_species
+
+# --- GESTION ROBUSTE DE L'IMPORT DE SMOLAGENTS ---
+from smolagents import ToolCallingAgent, tool
+
+try:
+    # Pour les versions récentes de smolagents (sur Streamlit Cloud)
+    from smolagents import InferenceClientModel as HFModel
+except ImportError:
+    try:
+        # Pour les versions intermédiaires
+        from smolagents import HfApiModel as HFModel
+    except ImportError:
+        # Pour les anciennes versions avec litellm
+        from smolagents import LiteLLMModel as HFModel
+# -------------------------------------------------
 
 # 1. Le "Décorateur" @tool
 @tool

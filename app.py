@@ -1,8 +1,22 @@
 # app.py
 import streamlit as st
-from smolagents import ToolCallingAgent, tool, HfApiModel
 import os
 from bio_tools import translate_dna_to_protein, identify_species
+
+# --- GESTION ROBUSTE DE L'IMPORT DE SMOLAGENTS ---
+from smolagents import ToolCallingAgent, tool
+
+try:
+    # Pour les versions récentes de smolagents (sur Streamlit Cloud)
+    from smolagents import InferenceClientModel as HFModel
+except ImportError:
+    try:
+        # Pour les versions intermédiaires
+        from smolagents import HfApiModel as HFModel
+    except ImportError:
+        # Pour les anciennes versions avec litellm
+        from smolagents import LiteLLMModel as HFModel
+# -------------------------------------------------
 
 st.set_page_config(page_title="Gene-Agent | CSI Génomique", page_icon="🧬", layout="wide")
 
@@ -80,8 +94,8 @@ if prompt := st.chat_input("Ex: J'ai trouvé cet ADN : ATGGCCCTGTGGATGCGCCTCCTG.
         
     os.environ["HUGGINGFACE_API_KEY"] = api_key
     
-    # La méthode la plus stable pour Hugging Face
-    model = HfApiModel(
+    # Utilisation du modèle importé dynamiquement
+    model = HFModel(
         model_id="Qwen/Qwen2.5-Coder-32B-Instruct",
         token=api_key
     )
