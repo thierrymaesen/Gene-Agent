@@ -21,6 +21,15 @@
 
 ---
 
+## 🌐 Application en Direct (Live Demo)
+
+L'application est déployée et accessible publiquement sur Streamlit Community Cloud :
+👉 **[Tester Gene-Agent en Ligne (gene-agent.streamlit.app)](https://gene-agent.streamlit.app/)**
+
+*(Vous aurez simplement besoin d'une clé API Hugging Face gratuite pour l'utiliser).*
+
+---
+
 ## 🚀 Le Concept : AI for Science
 
 Ce projet démontre comment les Grands Modèles de Langage (LLMs) peuvent être équipés d'outils scientifiques déterministes pour éviter les "hallucinations" et fournir des résultats précis et vérifiables. Lorsqu'un utilisateur soumet une séquence d'ADN, l'Agent :
@@ -115,6 +124,15 @@ Ce projet est sous licence **MIT**. Voir le fichier [LICENSE](LICENSE) pour plus
 ![CI/CD](https://github.com/thierrymaesen/Gene-Agent/actions/workflows/ci.yml/badge.svg)
 
 **Gene-Agent** is an autonomous Artificial Intelligence system designed for bioinformatics. Unlike traditional chatbots or RAG systems, this project uses an **Agentic Workflow**, enabling the language model (LLM) to reason autonomously, select and execute custom Python tools to analyze DNA sequences.
+
+---
+
+## 🌐 Live Demo
+
+The application is deployed and publicly accessible on Streamlit Community Cloud:
+👉 **[Try Gene-Agent Live (gene-agent.streamlit.app)](https://gene-agent.streamlit.app/)**
+
+*(You will simply need a free Hugging Face API key to use it).*
 
 ---
 
