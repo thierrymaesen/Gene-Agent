@@ -100,17 +100,15 @@ if prompt := st.chat_input("Ex: J'ai trouvé cet ADN : ATGGCCCTGTGGATGCGCCTCCTG.
         token=api_key
     )
     
-        # 1. On définit nos règles strictes
+    # 1. On définit des règles strictes adaptées pour le CodeAgent
     regles_strictes = """
-    RÈGLES ABSOLUES POUR CETTE ANALYSE :
-    1. Tu es l'IA principale du laboratoire de la police scientifique (CSI).
-    2. Si on te demande d'identifier une espèce, utilise l'outil 'ai_species_identifier'.
-    3. NE DEVINE JAMAIS l'espèce. Si l'outil te dit "Trop court" ou "Inconnu", tu dois dire la vérité à l'utilisateur. Tu as interdiction d'inventer un animal.
-    4. Si on te demande de traduire, utilise l'outil 'ai_dna_translator' et explique les lettres trouvées.
-    5. Adopte un ton professionnel, scientifique, et direct, comme un rapport de laboratoire.
+    RÈGLES ABSOLUES POUR CETTE ANALYSE (Tu es l'IA principale du laboratoire CSI) :
+    1. OBLIGATOIRE : Utilise TOUJOURS l'outil 'ai_species_identifier' pour trouver l'origine de l'ADN.
+    2. OBLIGATOIRE : Utilise TOUJOURS l'outil 'ai_dna_translator' pour traduire la séquence.
+    3. Rédige un rapport complet et détaillé en français (minimum 3 phrases). Ne donne JAMAIS juste le résultat brut.
+    4. NE DEVINE JAMAIS l'espèce. Si l'outil d'identification dit "Inconnu", dis la vérité.
     """
     
-    # 2. On crée l'Agent normalement (SANS l'argument system_prompt qui cause l'erreur)
     agent = CodeAgent(
         tools=[ai_dna_translator, ai_species_identifier], 
         model=model
@@ -119,12 +117,12 @@ if prompt := st.chat_input("Ex: J'ai trouvé cet ADN : ATGGCCCTGTGGATGCGCCTCCTG.
     with st.chat_message("assistant"):
         with st.expander("🧠 Voir les étapes d'investigation de l'Agent", expanded=True):
             status_text = st.empty()
-            status_text.info("Investigation en cours...")
+            status_text.info("Investigation en cours (Identification et Traduction)...")
             try:
-                # 3. On combine la question de l'utilisateur AVEC nos règles strictes
-                mission_complete = f"{regles_strictes}\n\nVoici la demande de l'utilisateur :\n{prompt}"
+                # 3. On combine la question avec des ordres directs
+                mission_complete = f"Analyse cette séquence d'ADN : {prompt}\n\n{regles_strictes}"
                 
-                # On lance l'agent avec la mission complète
+                # On lance l'agent
                 reponse_finale = agent.run(mission_complete)
                 status_text.success("Analyse terminée.")
             except Exception as e:
