@@ -1,0 +1,5 @@
+streamlit
+smolagents
+litellm
+biopython
+pytest
